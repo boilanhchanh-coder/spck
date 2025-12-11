@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f9fd;
+    }
+    .topbar{
+        background-color: white;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content:space-between;
+        padding: 18px 50px 7px 30px;
+        border-bottom: 1px solid gray;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .tieude{
+        font-weight: bolder;
+        font-size: 40px;
+        margin-top: 2px;
+    }
+    .xinchao{
+        font-size: 15px;
+        margin: 10px 0px 10px 5px;
+    }
+    button{
+        margin: 5px 5px 0px 20px;
+    }
+    .quaylai{
+        width: 130px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+    #chedotoi{
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+    #chedotoi:hover, .quaylai:hover{
+        background-color: #c7c7c7;
+    }
+    .dangxuat{
+        background-color:  #f70076;
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    .dangxuat:hover{
+        background-color:  #fa66ad ;
+        font-weight: bolder;
+    }
+    .chung{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .mau{
+        box-sizing: border-box;
+        width: 300px;
+        height: 200px;
+        color: black;
+        background-color: white;
+        margin: 70px 100px 0px 60px;
+        padding: 30px;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 25px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .mau > div{
+        margin: 45px 30px 20px 105px;
+        font-weight: lighter;
+    }
+</style>
+<body>
+    <div class="topbar">
+        <div class="tieudetrai">
+            <div class="tieude">Thống kê hệ thống</div>
+            <div class="xinchao"></div>
+        </div>
+        <div class="tieudephai">
+            <button class="quaylai" onclick="location.href='admin.html'">Trang admin</button>
+            <button id="chedotoi">Chế độ tối</button>
+            <button class="dangxuat" onclick="logout()">Đăng xuất</button>
+        </div>
+    </div>
+        <div class="chung">
+            <div class="mau">
+                Tổng user
+                <div id="tonguser"></div>
+            </div>
+            <div class="mau">
+                Tổng bài viết
+                <div id="tongbaiviet"></div>
+            </div>
+            <div class="mau">
+                Bài public
+                <div id="tongpublic"></div>
+            </div>
+            <div class="mau">
+                Lượt thích
+                <div id="tongluotthich"></div>
+            </div>
+            <div class="mau">
+                Bình luận
+                <div id="tongbinhluan"></div>
+            </div>
+        </div>
+        <script src="java.js"></script>
+        <script>
+            const btn = document.getElementById('chedotoi');
+            const topbar = document.querySelector('.topbar');
+            const body = document.querySelector('body');
+            const tieudetrai = document.querySelector('.tieudetrai');
+            const maus = document.querySelectorAll('.mau');
+            const darkmode = localStorage.getItem("dark-mode");
+            if (darkmode === "on"){
+                document.body.classList.add("dark-mode");
+                body.style.backgroundColor ="#0f1629";
+                topbar.style.backgroundColor = "#0f1629";
+                tieudetrai.style.color = "white";
+                maus.forEach(item=>{
+                    item.style.backgroundColor = "#1c2839";
+                    item.style.color = "white";
+                });
+            }
+            btn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    body.style.backgroundColor ="#0f1629";
+                    topbar.style.backgroundColor = "#0f1629";
+                    tieudetrai.style.color = "white";
+                    maus.forEach(item=>{
+                        item.style.backgroundColor = "#1c2839";
+                        item.style.color = "white";
+                    });
+                    localStorage.setItem("dark-mode", "on")
+                }
+                else{
+                    body.style.backgroundColor ="white";
+                    topbar.style.backgroundColor = "white";
+                    tieudetrai.style.color = "black";
+                    maus.forEach(item=>{
+                        item.style.backgroundColor = "#c7c7c7";
+                        item.style.color = "black";
+                    });
+                    localStorage.setItem("dark-mode", "off");
+                }
+            });
+            thongkeadmin();
+        </script>
+</body>
+</html>

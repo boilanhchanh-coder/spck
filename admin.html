@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f9fd;
+    }
+    .topbar{
+        background-color: white;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content:space-between;
+        padding: 18px 50px 7px 30px;
+        border-bottom: 1px solid gray;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .tieude{
+        font-weight: bolder;
+        font-size: 40px;
+        margin-top: 2px;
+    }
+    .xinchao{
+        font-size: 15px;
+        margin: 10px 0px 10px 5px;
+    }
+    .topbar button{
+        margin: 5px 5px 0px 20px;
+    }
+    .thongke{
+        width: 190px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+    #chedotoi{
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+    }
+    #chedotoi:hover{
+        background-color: #c7c7c7;
+    }
+    .thongke:hover{
+        background-color: #c7c7c7;
+    }
+    .dangxuat{
+        background-color: #f70076;
+        width: 120px;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    .dangxuat:hover{
+        background-color: #fa66ad ;
+        font-weight: bolder;
+    }
+    .main{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 60px;
+    }
+    .container{
+        background-color: white;
+        width: 45%;
+        height: 290px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        padding-top: 20px;
+        display: inline-block;
+    }
+    .bocuc{
+        background-color: white;
+        width: 45%;
+        min-height: 290px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        padding-top: 20px;
+        display: inline-block;
+    }
+    h2{
+        margin-top: 50px;
+    }
+    b{
+        font-size: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 5%;
+        margin-top: 15px;
+        display: inline-block;
+        width: 30%;
+        vertical-align: middle;
+    }
+    h3{
+        font-size: 13px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 5%;
+        margin-top: 15px;
+        display: inline-block;
+        width: 30%;
+        vertical-align: middle;
+    }
+    .p1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 2%;
+        margin-left: 5%;
+        font-weight: bold;
+        font-size:15px;
+    }
+    .p1.dark-mode{
+        color: #ffffff;
+    }
+    .container button{
+        box-sizing: border-box;
+        background-color: #f70076;
+        color: white;
+        width: 120px;
+        height: 33px;
+        margin-top: 15px;
+        margin-left: 30px;
+        border-radius: 15px;
+        border-style: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .container button:hover{
+        background-color:  #fa66ad ;
+    }
+    input, select{
+        box-sizing: border-box;
+        margin-left: 30px;
+        margin-top: 15px;
+        width: 50%;
+        height: 35px;
+        border-radius: 7px;
+        border: 1px solid gray;
+        padding-left: 8px;;
+        vertical-align: middle;
+    }
+    .b1{
+        font-size: 12px;
+        color: green;
+        margin-top: 10px;
+    }
+    .noidung{
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .indam{
+        font-weight: bold;
+        font-size: 12px;
+    }
+    #timkiem{
+        margin-left:50%;
+        width: 30%;
+    }
+    .p2{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        margin-left: 5%;
+        font-weight: bold;
+        font-size:15px;
+    }
+    .regSuccess, .nhac, .existence{
+        display: none;
+        position: absolute;
+    }
+    .taikhoan1{
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        width: 25%;
+        align-items: center;
+    }
+    .taikhoan2{
+        display: flex;
+        justify-content: center;
+        margin:0px 5%; 
+        width: 15%;
+        align-items: center;
+        padding: 2px;
+        background-color: #e4e8f0;
+        border-radius: 50px;
+        color: black;
+    }
+    .taikhoan3{
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        align-items: center;
+    }
+    .taikhoan4{
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        align-items: center;
+    }
+    .delete{
+        box-sizing: border-box;
+        background-color: red;
+        color: white;
+        width: 100px;
+        height: 40px;
+        border-radius: 50px;
+        border-style: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .delete:hover{
+        background-color: #ff4545;
+    }
+    body.dark-mode .taikhoan2{
+    color:black;
+}
+</style>
+<body onload="hienthidanhsachtaikhoan()">
+    <div class="topbar">
+        <div class="tieudetrai">
+            <div class="tieude">Quản trị</div>
+            <div class="xinchao"></div>
+        </div>
+        <div class="tieudephai">
+            <button class="thongke" onclick="location.href='thongkeAdmin.html'">Thống kê của tôi</button>
+            <button id="chedotoi">Chế độ tối</button>
+            <button class="dangxuat" onclick="logout()">Đăng xuất</button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <p class="p1">Thêm tài khoản mới</p>
+            <div><b>Tên đăng nhập</b><input type="text" id="regAdmin"></div>
+            <div><b>Mật khẩu</b><input type="password" id="regPass"></div>
+            <div style="margin-bottom: 20px;">
+                <b>Vai trò</b><select class="selectrole">
+                    <option>User</option>
+                    <option>Admin</option></select>
+                <b class="b1 regSuccess">Tạo tài khoản thành công</b>
+                <b class="b1 nhac">Điền đầy đủ thông tin!</b>
+                <b class="b1 existence">Người dùng đã tồn tại!</b>
+            </div>
+            <button onclick="registerAdmin()">Tạo tài khoản</button><br>
+        </div>
+        <div class="bocuc">  
+            <p class="p2">Danh sách tài khoản</p>
+            <div class="noidung">
+                <span class="indam">Username</span>
+                <span class="indam">Vai trò</span>
+                <span class="indam">Ngày tạo</span>
+                <span class="indam">Hành động</span>
+            </div>
+            <hr>
+            <div id="danhsachtaikhoan" ></div>
+        </div>
+    </div>
+<script src="java.js"></script>
+<script>
+    const btn = document.getElementById('chedotoi');
+    const container = document.querySelector('.container');
+    const bocuc = document.querySelector('.bocuc');
+    const topbar = document.querySelector('.topbar');
+    const body = document.querySelector('body');
+    const tieudetrai = document.querySelector('.tieudetrai');
+    const taikhoan2 = document.querySelector('.taikhoan2');
+    const darkmode = localStorage.getItem("dark-mode");
+    if (darkmode === "on"){
+        document.body.classList.add("dark-mode");
+        container.style.color = "white";
+        container.style.backgroundColor = "#1c2839";
+        body.style.backgroundColor ="#0f1629";
+        bocuc.style.backgroundColor = "#1c2839";
+        bocuc.style.color = "white";
+        topbar.style.backgroundColor = "#0f1629";
+        tieudetrai.style.color = "white";
+        if(taikhoan2) taikhoan2.style.color = "black";
+    }
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            container.style.color = "white";
+            container.style.backgroundColor = "#1c2839";
+            body.style.backgroundColor ="#0f1629";
+            bocuc.style.backgroundColor = "#1c2839";
+            bocuc.style.color = "white";
+            topbar.style.backgroundColor = "#0f1629";
+            tieudetrai.style.color = "white";
+            if(taikhoan2) taikhoan2.style.color = "black";
+            localStorage.setItem("dark-mode", "on");
+        }
+        else{
+            bocuc.style.color = "black";
+            bocuc.style.backgroundColor="white";
+            container.style.color = "black";
+            container.style.backgroundColor="white";
+            body.style.backgroundColor ="white";
+            topbar.style.backgroundColor = "white";
+            tieudetrai.style.color = "black";
+            localStorage.setItem("dark-mode", "off");
+        }
+    });
+</script>
+</body>
+</html>

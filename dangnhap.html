@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 45%;
+        background-color: white;
+        height: 390px;
+        margin-top:13%;
+        border-radius: 10px;
+        margin-right: 90px;
+    }
+    .chung{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5%;
+    }
+    span{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        margin-left: 20px;
+        font-family:initial;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 3px 3px 5px #969696;
+        font-size: 29px;
+        font-weight: bold;
+    }
+    h4{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 5%;
+        margin-top: 20px;
+    }
+    input{
+        box-sizing: border-box;
+        margin-left: 5%;
+        margin-top: 3px;
+        width: 100%;
+        height: 45px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        padding-left: 15px;
+    }
+    button{
+        box-sizing: border-box;
+        background-color: #f70076;
+        color: white;
+        width: 100%;
+        height: 38px;
+        margin-left: 5%;
+        margin-top: 30px;
+        border-radius: 12px;
+        border-style: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    a{
+        color: blue;
+    }
+    .chuyendoi{
+        display: flex;
+        justify-content: center;
+        margin-top: 7px;
+    }
+    .login-button:hover{
+        background-color: #fa66ad;
+    }
+    .nhacnho{
+        display: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 2%;
+        color: red;
+    }
+    img{
+        width: 500px;
+        height: auto;
+        margin-top: 10px;
+        margin-right:200px;
+        border-radius: 10px;
+    }
+    .anh{
+        width:45%;
+        display:flex;
+        justify-content:center;
+        margin-left: 5%;
+        }
+    .chung{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5%;
+    }
+    #toi{
+        display:flex;
+        justify-content: center;
+        margin-top: -130px;
+        margin-left: 20px;
+        width: 120px;
+        height: 35px;
+        border-radius: 30px;
+        border: none;
+        background-color: #f70076;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+    }
+    #toi:hover{
+        background-color: #c7c7c7;
+    }
+    #picture-dark{
+        display: none;
+    }
+    .thu{
+        margin-left: 70px;         
+    }
+</style>
+<body>
+     <div class="chung">
+        <div class="anh">
+            <img id="picture-white" src="z7311176101195_1b9633cb4747376a54e10dd05aff3dd6.jpg">
+            <img id="picture-dark" src="z7311486992085_36aa69c97fadb408f381be1c39e26621.jpg">
+        </div>
+        <div class="container">
+            <div style="width: 100%" class="thu">
+                <span>Personal Content Hub</span>
+                <h4>Tên đăng nhập:</h4>
+                <input type="text" placeholder="Tên đăng nhập" id="loginUser"><br>
+                <h4>Mật khẩu:</h4>
+                <input type="password" placeholder="Mật khẩu" id="loginPass">
+                <div class="nhacnho">Sai tài khoản hoặc mật khẩu!</div>
+                <button onclick="login()" class="login-button">Đăng nhập</button>
+                <div class="chuyendoi">Chưa có tài khoản?&nbsp;<a href="dangky.html"><u>Đăng ký </u></a></div>
+            </div>
+            <div id="toi">Chế độ tối</div>
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById('toi');
+        const container = document.querySelector('.container');
+        const body = document.querySelector('body');
+        const img1 = document.getElementById('picture-white');
+        const img2 = document.getElementById('picture-dark');
+        const darkmode = localStorage.getItem('dark-mode');
+        if (darkmode === "on"){
+            container.style.color = "white";
+            container.style.backgroundColor = "#1c2839";
+            body.style.backgroundColor ="#0e1424";
+            img1.style.display = "none";
+            img2.style.display = "block";
+        }
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                container.style.color = "white";
+                container.style.backgroundColor = "#1c2839";
+                body.style.backgroundColor ="#0e1424";
+                img1.style.display = "none";
+                img2.style.display = "block";
+                localStorage.setItem("dark-mode", "on");
+            }
+            else{
+                container.style.color = "black";
+                container.style.backgroundColor="white";
+                body.style.backgroundColor = "white";
+                img1.style.display = "block";
+                img2.style.display = "none";
+                localStorage.setItem("dark-mode", "off");
+            }
+        });
+    </script>
+    <script src="java.js"></script>
+</body>
+</html>
